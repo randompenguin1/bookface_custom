@@ -1,0 +1,63 @@
+<?php
+
+if(! function_exists("string_plural_select_en_gb")) {
+function string_plural_select_en_gb($n){
+	$n = intval($n);
+	return intval($n != 1);
+}}
+$a->strings['Bookface Customizations'] = 'Bookface Customizations';
+$a->strings['Customize colors and button labels in the Bookface scheme for the Frio theme. You can enter a color by name, hex, rgb, rgba, but no gradients or images. Only items with entries will be included in the stylesheet override.'] = 'Customize colors and button labels in the Bookface scheme for the Frio theme. You can enter a color by name, hex, rgb, rgba, but no gradients or images. Only items with entries will be included in the stylesheet override.';
+$a->strings['WARNING: There is nothing to prevent you from making color combinations that result in an unusable interface!'] = 'WARNING: There is nothing to prevent you from making color combinations that result in an unusable interface!';
+$a->strings['Enable Customizations'] = 'Enable Customizations';
+$a->strings['Fonts and Colors'] = 'Fonts and Colors';
+$a->strings['Global Font'] = 'Global Font';
+$a->strings['make sure to define fallbacks in case preferred font is not available'] = 'make sure to define fallbacks in case preferred font is not available';
+$a->strings['Nav Background Color'] = 'Nav Background Color';
+$a->strings['Link Color'] = 'Link Color';
+$a->strings['Font Color'] = 'Font Color';
+$a->strings['Font Lighter Color'] = 'Font Lighter Color';
+$a->strings['Font Darker Color'] = 'Font Darker Color';
+$a->strings['Nav Icon Color'] = 'Nav Icon Color';
+$a->strings['Background Color'] = 'Background Color';
+$a->strings['Content Background Color'] = 'Content Background Color';
+$a->strings['Comment Background Color'] = 'Comment Background Color';
+$a->strings['Menu Background Hover Color'] = 'Menu Background Hover Color';
+$a->strings['Border Color'] = 'Border Color';
+$a->strings['Engagement Count Text Color'] = 'Engagement Count Text Color';
+$a->strings['Engagement Count Background Color'] = 'Engagement Count Background Color';
+$a->strings['Feature Options'] = 'Feature Options';
+$a->strings['Drop Shadow/Outer Glow Effect'] = 'Drop Shadow/Outer Glow Effect';
+$a->strings['Button Rollover Brighter/Dimmer'] = 'Button Rollover Brighter/Dimmer';
+$a->strings['Show/Hide File Attachment Button'] = 'Show/Hide File Attachment Button';
+$a->strings['"block" to show, "none" to hide'] = '"block" to show, "none" to hide';
+$a->strings['Show/Hide Bootstrap Tooltip Balloons'] = 'Show/Hide Bootstrap Tooltip Balloons';
+$a->strings['Show/Hide Navbar Button Labels'] = 'Show/Hide Navbar Button Labels';
+$a->strings['Navbar Button Labels'] = 'Navbar Button Labels';
+$a->strings['Network Button Label'] = 'Network Button Label';
+$a->strings['Profile/Home Button Label'] = 'Profile/Home Button Label';
+$a->strings['Community Button Label'] = 'Community Button Label';
+$a->strings['Messages Button Label'] = 'Messages Button Label';
+$a->strings['Calendar Button Label'] = 'Calendar Button Label';
+$a->strings['Contacts Button Label'] = 'Contacts Button Label';
+$a->strings['Notifications Button Label'] = 'Notifications Button Label';
+$a->strings['Label Text'] = 'Label Text';
+$a->strings['Sign-In Button Label'] = 'Sign-In Button Label';
+$a->strings['Compose Button Label'] = 'Compose Button Label';
+$a->strings['New Note Button Label'] = 'New Note Button Label';
+$a->strings['Save Search Button Label'] = 'Save Search Button Label';
+$a->strings['Follow Tag Button Label'] = 'Follow Tag Button Label';
+$a->strings['Comment Button Label'] = 'Comment Button Label';
+$a->strings['Share Button Label'] = 'Share Button Label';
+$a->strings['Quote Button Label'] = 'Quote Button Label';
+$a->strings['Like Button Label'] = 'Like Button Label';
+$a->strings['Dislike Button Label'] = 'Dislike Button Label';
+$a->strings['More Button Label'] = 'More Button Label';
+$a->strings['Attend Yes Button Label'] = 'Attend Yes Button Label';
+$a->strings['Attend No Button Label'] = 'Attend No Button Label';
+$a->strings['Attend Maybe Button Label'] = 'Attend Maybe Button Label';
+$a->strings['Add Photo Button Label'] = 'Add Photo Button Label';
+$a->strings['Follow Button Label'] = 'Follow Button Label';
+$a->strings['Save Button Label'] = 'Save Button Label';
+$a->strings['New Message Button Label'] = 'New Message Button Label';
+$a->strings['Calendar "Today" Label'] = 'Calendar "Today" Label';
+$a->strings['Replaces target icon with text above'] = 'Replaces target icon with text above';
