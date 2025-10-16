@@ -50,4 +50,6 @@
 {{include file="field_input.tpl" field=$save_button_text}}
 {{include file="field_input.tpl" field=$new_message_text}}
 {{include file="field_input.tpl" field=$calendar_today_text}}
+{{include file="field_input.tpl" field=$community_post_text}}
 <em>{{$disclaimer}}</em>
+<p><small>* Option only used by Friendica 2024</small></p>
