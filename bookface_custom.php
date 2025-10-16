@@ -2,7 +2,7 @@
 /**
  * Name: Bookface Customize
  * Description: Adds a stylesheet to the footer with CSS variable customizations.
- * Version: 1.0
+ * Version: 1.1
  * Author: Random Penguin <https://gitlab.com/randompenguin>
  */
 
@@ -31,7 +31,7 @@ function bookface_custom_addon_settings(array &$data)
 	if (!DI::userSession()->getLocalUserId()) {
 		return;
 	}
-	
+	/* check theme for Friendica 2024 or 2025 */
 	if ( method_exists(DI::class, 'app') ){
 		$current_theme = DI::app()->getCurrentTheme();
 	} else if ( method_exists(DI::class, 'appHelper')) {
@@ -95,6 +95,7 @@ function bookface_custom_addon_settings(array &$data)
 	$save_button_text = DI::pConfig()->get($uid, 'bookface_custom', 'save_button_text');
 	$new_message_text = DI::pConfig()->get($uid, 'bookface_custom', 'new_message_text');
 	$calendar_today_text = DI::pConfig()->get($uid, 'bookface_custom', 'calendar_today_text');
+	$community_post_text = DI::pConfig()->get($uid, 'bookface_custom', 'community_post_text');
 
 	$template = Renderer::getMarkupTemplate('settings.tpl', 'addon/bookface_custom/');
 	$html     = Renderer::replaceMacros($template, [
@@ -246,27 +247,27 @@ function bookface_custom_addon_settings(array &$data)
 		'$section_head_labels' => DI::l10n()->t('Label Text'),
 		'$sign_in_text' => [
 			'sign_in_text',
-			DI::l10n()->t('Sign-In Button Label'),
+			DI::l10n()->t('Sign-In Button Label*'),
 			$sign_in_text
 		],
 		'$compose_text' => [
 			'compose_text',
-			DI::l10n()->t('Compose Button Label'),
+			DI::l10n()->t('Compose Button Label*'),
 			$compose_text
 		],
 		'$new_note_text' => [
 			'new_note_text',
-			DI::l10n()->t('New Note Button Label'),
+			DI::l10n()->t('New Note Button Label*'),
 			$new_note_text
 		],
 		'$save_search_text' => [
 			'save_search_text',
-			DI::l10n()->t('Save Search Button Label'),
+			DI::l10n()->t('Save Search Button Label*'),
 			$save_search_text
 		],
 		'$follow_tag_text' => [
 			'follow_tag_text',
-			DI::l10n()->t('Follow Tag Button Label'),
+			DI::l10n()->t('Follow Tag Button Label*'),
 			$follow_tag_text
 		],
 		'$comment_button_text' => [
@@ -331,14 +332,20 @@ function bookface_custom_addon_settings(array &$data)
 		],
 		'$new_message_text' => [
 			'new_message_text',
-			DI::l10n()->t('New Message Button Label'),
+			DI::l10n()->t('New Message Button Label*'),
 			$new_message_text
 		],
 		'$calendar_today_text' => [
 			'calendar_today_text',
-			DI::l10n()->t('Calendar "Today" Label'),
+			DI::l10n()->t('Calendar "Today" Label*'),
 			$calendar_today_text,
 			DI::l10n()->t('Replaces target icon with text above')
+		],
+		'$community_post_text' => [
+			'community_post_text',
+			DI::l10n()->t('Community Post Warning'),
+			$community_post_text,
+			'Tells user Community posts must be public'
 		],
 	]);
 
@@ -634,7 +641,12 @@ function bookface_custom_addon_settings_post(array $post)
 	} else {
 		DI::pConfig()->delete($uid, 'bookface_custom', 'calendar_today_text');
 	}
-	
+	if ($post['community_post_text'] != ""){
+		DI::pConfig()->set($uid, 'bookface_custom', 'community_post_text', $post['community_post_text']);
+	} else {
+		DI::pConfig()->delete($uid, 'bookface_custom', 'community_post_text');
+	}
+
 }
 
 function bookface_custom_footer(string &$body)
@@ -710,6 +722,7 @@ function bookface_custom_footer(string &$body)
 	$save_button_text = DI::pConfig()->get($uid, 'bookface_custom', 'save_button_text');
 	$new_message_text = DI::pConfig()->get($uid, 'bookface_custom', 'new_message_text');
 	$calendar_today_text = DI::pConfig()->get($uid, 'bookface_custom', 'calendar_today_text');
+	$community_post_text = DI::pConfig()->get($uid, 'bookface_custom', 'community_post_text');
 	
 	// now build the custom stylesheet overrides...
 	$html = '<style type="text/css">:root{';
@@ -762,6 +775,7 @@ function bookface_custom_footer(string &$body)
 	if (!empty($save_button_text)){ $html .= '--save-button-text: \''.$save_button_text.'\';';};
 	if (!empty($new_message_text)){ $html .= '--new-message-text: \''.$new_message_text.'\';';};  
 	if (!empty($calendar_today_text)){ $html .= '--calendar-today-text: \''.$calendar_today_text.'\';';};	
+	if (!empty($community_post_text)){ $html .= '--community-post-text: \''.$community_post_text.'\';';};
 	$html .= '}</style>';
 	
 	$body .= $html;
