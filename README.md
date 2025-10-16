@@ -32,6 +32,10 @@ Your changes should be immediately applied when the settings page reloads.
 * This addon does work with "Bookface Auto" if you're only changing the font or labels, it does not work so well for colors because the auto stylesheet will pick Light Mode or Dark Mode depending on the device settings.
 
 ## Changelog
+1.1 (16 Oct 2025)
+* Added Community Post Text option for Bookface 1.8.5
+* Added footnote for options that only work with Friendica 2024
+
 1.0 (12 July 2025)
 * Initial Release for Friendica 'Interrupted Fern' 2024.12 and the 2025.7 Release Candidate
 
